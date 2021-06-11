@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -39,8 +38,6 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
 
 
         initView()
-        initData()
-        initListener()
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -58,16 +55,6 @@ abstract class BaseActivity<T : ViewBinding> : AppCompatActivity() {
     abstract fun initView()
 
     abstract fun isShowBack(): Boolean
-
-
-    open fun initData() {
-
-    }
-
-    open fun initListener() {
-
-
-    }
 
 
 

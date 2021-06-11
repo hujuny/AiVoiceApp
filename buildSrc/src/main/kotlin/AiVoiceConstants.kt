@@ -39,6 +39,9 @@ object DependenciesConfig {
     //ARouter
     const val AROUTER = "com.alibaba:arouter-api:1.5.0"
     const val AROUTER_COMPILER = "com.alibaba:arouter-compiler:1.2.2"
+
+    //RecyclerView
+    const val RECYCLERVIEW = "androidx.recyclerview:recyclerview:1.2.0-alpha01"
 }
 
 //Module配置

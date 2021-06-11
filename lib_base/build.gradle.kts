@@ -41,6 +41,7 @@ dependencies {
     api(DependenciesConfig.CONSTRAINTLAYOUT)
     api(DependenciesConfig.EVENT_BUS)
     api(DependenciesConfig.AROUTER)
+    api(DependenciesConfig.RECYCLERVIEW)
 
     api(project(":lib_network"))
     api(project(":lib_voice"))

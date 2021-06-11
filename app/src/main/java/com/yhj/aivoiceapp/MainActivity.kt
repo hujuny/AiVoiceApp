@@ -1,16 +1,10 @@
 package com.yhj.aivoiceapp
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
-import android.util.Log
 import com.yhj.aivoiceapp.databinding.ActivityMainBinding
+import com.yhj.lib_base.adapter.CommonAdapter
+import com.yhj.lib_base.adapter.CommonViewHolder
 import com.yhj.lib_base.base.BaseActivity
-import com.yhj.lib_base.event.EventManager
-import com.yhj.lib_base.event.MessageEvent
 import com.yhj.lib_base.helper.ARouterHelper
-import org.greenrobot.eventbus.EventBus
-import org.greenrobot.eventbus.Subscribe
-import org.greenrobot.eventbus.ThreadMode
 
 /**
  * @author :杨虎军
@@ -18,6 +12,9 @@ import org.greenrobot.eventbus.ThreadMode
  * @desc   :
  */
 class MainActivity : BaseActivity<ActivityMainBinding>() {
+
+
+    private var mList = ArrayList<String>()
 
     override fun onDestroy() {
         super.onDestroy()
@@ -35,6 +32,23 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 //        EventManager().post(222, "哈哈哈")
 
         binding.tvContent.setOnClickListener { ARouterHelper.startActivity(ARouterHelper.PATH_APP_MANAGER) }
+
+        binding.rvContent.adapter =
+            CommonAdapter<String>(mList, object : CommonAdapter.OnBindDataListener<String> {
+                override fun onBindViewHolder(
+                    model: String,
+                    viewHolder: CommonViewHolder,
+                    type: Int,
+                    position: Int
+                ) {
+                    viewHolder.setText(R.id.tv_content, model)
+                }
+
+                override fun getLayoutId(type: Int): Int {
+                    return R.layout.activity_main
+                }
+
+            })
     }
 
     override fun isShowBack() = true
