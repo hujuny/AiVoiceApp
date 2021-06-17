@@ -5,6 +5,7 @@ plugins {
 
 
 android {
+    useLibrary("org.apache.http.legacy")
     compileSdkVersion(AppConfig.compileSdkVersion)
 
     defaultConfig {
@@ -27,8 +28,8 @@ android {
         }
     }
 
-    buildFeatures{
-        dataBinding=true
+    buildFeatures {
+        dataBinding = true
     }
 }
 

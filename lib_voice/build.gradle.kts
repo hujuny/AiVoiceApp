@@ -30,6 +30,7 @@ android {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 
+    api(files("libs/bdtts.jar"))
 
 
 }

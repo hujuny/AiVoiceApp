@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
  *    @date   : 2021/06/11
  *    @desc   :
  */
-class CommonViewHolder(itemVIew: View) : RecyclerView.ViewHolder(itemVIew) {
+class CommonViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
 
     private var mViews: SparseArray<View?> = SparseArray()

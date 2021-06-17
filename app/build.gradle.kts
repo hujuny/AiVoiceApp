@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
-
 //apply plugin: 'com.android.application'
 //apply plugin: 'kotlin-android'
 //引用插件
@@ -7,6 +5,8 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("kapt")
+    id("kotlin-android")
+    id("kotlin-android-extensions")
 //    kotlin("android.extensions")
 }
 

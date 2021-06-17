@@ -6,6 +6,8 @@ import com.yhj.lib_base.adapter.CommonAdapter
 import com.yhj.lib_base.adapter.CommonViewHolder
 import com.yhj.lib_base.base.BaseActivity
 import com.yhj.lib_base.helper.ARouterHelper
+import com.yhj.lib_voice.VoiceTTS
+import com.yhj.lib_voice.manager.VoiceManager
 import com.yhj.module_developer.data.DeveloperListData
 import com.yhj.module_developer.databinding.ActivityDeveloperBinding
 
@@ -89,6 +91,7 @@ class DeveloperActivity : BaseActivity<ActivityDeveloperBinding>() {
 
     private fun addItemData(type: Int, text: String) {
         mList.add(DeveloperListData(type, text))
+
     }
 
     private fun itemClick(position: Int) {
@@ -100,6 +103,16 @@ class DeveloperActivity : BaseActivity<ActivityDeveloperBinding>() {
             5 -> ARouterHelper.startActivity(ARouterHelper.PATH_SETTING)
             6 -> ARouterHelper.startActivity(ARouterHelper.PATH_VOICE_SETTING)
             7 -> ARouterHelper.startActivity(ARouterHelper.PATH_WEATHER)
+            21 -> VoiceManager.start("你好,小爱同学", object : VoiceTTS.OnTTSResultListener {
+                override fun ttsEnd() {
+                    TODO("Not yet implemented")
+                }
+
+            })
+            22 -> VoiceManager.pause()
+            23 -> VoiceManager.restart()
+            24 -> VoiceManager.stop()
+            25 -> VoiceManager.release()
         }
     }
 }

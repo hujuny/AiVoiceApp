@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
  *    @date   : 2021/06/11
  *    @desc   :
  */
-class CommonAdapter<T> : RecyclerView.Adapter<CommonViewHolder> {
+open class CommonAdapter<T> : RecyclerView.Adapter<CommonViewHolder> {
 
     private var mList: List<T>
     private var onBindDataListener: OnBindDataListener<T>? = null
@@ -21,6 +21,7 @@ class CommonAdapter<T> : RecyclerView.Adapter<CommonViewHolder> {
 
     constructor(mList: List<T>, onMoreBindDataListener: OnMoreBindDataListener<T>) {
         this.mList = mList
+        this.onBindDataListener = onMoreBindDataListener
         this.onMoreBindDataListener = onMoreBindDataListener
     }
 

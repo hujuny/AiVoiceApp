@@ -1,10 +1,9 @@
 package com.yhj.aivoiceapp
 
+import android.content.Intent
 import com.yhj.aivoiceapp.databinding.ActivityMainBinding
-import com.yhj.lib_base.adapter.CommonAdapter
-import com.yhj.lib_base.adapter.CommonViewHolder
+import com.yhj.aivoiceapp.service.VoiceService
 import com.yhj.lib_base.base.BaseActivity
-import com.yhj.lib_base.helper.ARouterHelper
 
 /**
  * @author :杨虎军
@@ -31,24 +30,26 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 //        EventManager().post(111)
 //        EventManager().post(222, "哈哈哈")
 
-        binding.tvContent.setOnClickListener { ARouterHelper.startActivity(ARouterHelper.PATH_APP_MANAGER) }
+//        binding.tvContent.setOnClickListener { ARouterHelper.startActivity(ARouterHelper.PATH_APP_MANAGER) }
+//
+//        binding.rvContent.adapter =
+//            CommonAdapter<String>(mList, object : CommonAdapter.OnBindDataListener<String> {
+//                override fun onBindViewHolder(
+//                    model: String,
+//                    viewHolder: CommonViewHolder,
+//                    type: Int,
+//                    position: Int
+//                ) {
+//                    viewHolder.setText(R.id.tv_content, model)
+//                }
+//
+//                override fun getLayoutId(type: Int): Int {
+//                    return R.layout.activity_main
+//                }
+//
+//            })
 
-        binding.rvContent.adapter =
-            CommonAdapter<String>(mList, object : CommonAdapter.OnBindDataListener<String> {
-                override fun onBindViewHolder(
-                    model: String,
-                    viewHolder: CommonViewHolder,
-                    type: Int,
-                    position: Int
-                ) {
-                    viewHolder.setText(R.id.tv_content, model)
-                }
-
-                override fun getLayoutId(type: Int): Int {
-                    return R.layout.activity_main
-                }
-
-            })
+        startService(Intent(this, VoiceService::class.java))
     }
 
     override fun isShowBack() = true
