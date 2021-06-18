@@ -29,7 +29,7 @@ class DeveloperActivity : BaseActivity<ActivityDeveloperBinding>() {
 
 
     override fun initView() {
-        initData()
+
         initRecyclerView()
     }
 
@@ -77,7 +77,9 @@ class DeveloperActivity : BaseActivity<ActivityDeveloperBinding>() {
             })
     }
 
-    private fun initData() {
+    override fun initData() {
+        super.initData()
+
         val dataArray = resources.getStringArray(R.array.DeveloperListArray)
         dataArray.forEach {
             //标题
@@ -103,16 +105,13 @@ class DeveloperActivity : BaseActivity<ActivityDeveloperBinding>() {
             5 -> ARouterHelper.startActivity(ARouterHelper.PATH_SETTING)
             6 -> ARouterHelper.startActivity(ARouterHelper.PATH_VOICE_SETTING)
             7 -> ARouterHelper.startActivity(ARouterHelper.PATH_WEATHER)
-            21 -> VoiceManager.start("你好,小爱同学", object : VoiceTTS.OnTTSResultListener {
-                override fun ttsEnd() {
-                    TODO("Not yet implemented")
-                }
-
+            20 -> VoiceManager.ttsStart("您好,小爱同学", object : VoiceTTS.OnTTSResultListener {
+                override fun ttsEnd() {}
             })
-            22 -> VoiceManager.pause()
-            23 -> VoiceManager.restart()
-            24 -> VoiceManager.stop()
-            25 -> VoiceManager.release()
+            21 -> VoiceManager.ttsPause()
+            22 -> VoiceManager.ttsRestart()
+            23 -> VoiceManager.ttsStop()
+            24 -> VoiceManager.ttsRelease()
         }
     }
 }

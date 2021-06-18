@@ -73,7 +73,7 @@ object VoiceTTS : SpeechSynthesizerListener {
     }
 
     override fun onSpeechProgressChanged(p0: String?, p1: Int) {
-        TODO("Not yet implemented")
+
 
     }
 
